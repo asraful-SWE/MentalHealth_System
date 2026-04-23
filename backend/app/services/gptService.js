@@ -1,9 +1,6 @@
 const { OPENAI_API_KEY } = require('../../config/env');
 
-/**
- * Analyzes student assessment data using OpenAI GPT API
- * and returns risk level + recommendations.
- */
+
 exports.analyzeAssessment = async (assessmentData) => {
   const prompt = `You are a mental health risk analysis assistant.
 Analyze the student's responses and classify the risk level as:
@@ -97,7 +94,7 @@ Important: Return ONLY the JSON object, no extra text.`;
 function fallbackAnalysis(data) {
   let riskScore = 0;
 
-  // Higher stress = higher risk
+  
   riskScore += data.stressLevel * 2;
   // Lower sleep = higher risk
   riskScore += (10 - Math.min(data.sleepHours, 10)) * 1.5;

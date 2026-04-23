@@ -9,9 +9,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-/**
- * Sends a high-risk alert email to the student with mental health resources.
- */
+
 exports.sendHighRiskAlert = async (toEmail, studentName, recommendations) => {
   const recsList = recommendations.map((r) => `<li>${r}</li>`).join('');
 
